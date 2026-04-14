@@ -1,3 +1,18 @@
+from flask import Flask
+from threading import Thread
+
+app = Flask('')
+
+@app.route('/')
+def home():
+    return "I am alive!"
+
+def run():
+  app.run(host='0.0.0.0', port=8080)
+
+def keep_alive():
+    t = Thread(target=run)
+    t.start()
 import logging
 from telegram import Update
 from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler, MessageHandler, filters
@@ -27,4 +42,5 @@ if __name__ == '__main__':
     application.add_handler(calc_handler)
     
     print("বটটি এখন চালু আছে...")
+    keep_alive()
     application.run_polling()
