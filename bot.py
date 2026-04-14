@@ -3,7 +3,7 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler, MessageHandler, filters
 
 # এখানে আপনার সংগৃহীত API Token দিন
-TOKEN = '8551054225:AAH-yRL5WhnGAJOV3oxVSEI84GB14KJctck'
+TOKEN ='os.environ.get('BOT_TOKEN')'
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("হ্যালো! আমি একটি ক্যালকুলেটর বট। আমাকে যেকোনো অংক পাঠান (যেমন: 5+5), আমি সমাধান করে দেব।")
